@@ -42,6 +42,7 @@ const config = (): Configuration => {
                   "@babel/preset-typescript",
                   ["@babel/preset-react", { runtime: "automatic" }],
                 ],
+                plugins: ["@emotion/babel-plugin"],
               },
             },
           ],
