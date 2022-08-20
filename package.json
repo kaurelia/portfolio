@@ -16,7 +16,8 @@
     "@emotion/styled": "^11.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.18.10",
@@ -29,6 +30,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.4.2",
+    "@types/webfontloader": "^1.6.34",
     "babel-loader": "^8.2.5",
     "copy-webpack-plugin": "^11.0.0",
     "core-js": "^3.24.1",
