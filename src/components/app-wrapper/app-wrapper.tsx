@@ -7,8 +7,17 @@ const AppWrapper: FC = (): JSX.Element => {
     <Suspense fallback={<>LOADING...</>}>
       <Routes>
         {routes.map(
-          ({ path, component: Component }: RouteType): JSX.Element => {
-            return <Route path={path} element={<Component />} />;
+          (
+            { path, component: Component }: RouteType,
+            index: number
+          ): JSX.Element => {
+            return (
+              <Route
+                path={path}
+                key={`route-${index}`}
+                element={<Component />}
+              />
+            );
           }
         )}
       </Routes>

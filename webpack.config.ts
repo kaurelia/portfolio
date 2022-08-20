@@ -1,6 +1,11 @@
-import { Configuration } from "webpack";
+import { Configuration as ConfigurationBase } from "webpack";
 import { join } from "path";
 import CopyWebpackPlugin from "copy-webpack-plugin";
+import { Configuration as ConfigurationDevServer } from "webpack-dev-server";
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+
+type Configuration = ConfigurationDevServer & ConfigurationBase;
+
 const config = (): Configuration => {
   return {
     entry: "./src/index.tsx",
@@ -23,7 +28,23 @@ const config = (): Configuration => {
           },
         ],
       }),
+      new ReactRefreshWebpackPlugin(),
     ],
+    mode: "development",
+    devServer: {
+      host: "0.0.0.0",
+      client: {
+        overlay: false,
+      },
+      historyApiFallback: true,
+      static: join(__dirname, "dist"),
+      hot: true,
+      devMiddleware: {
+        writeToDisk: true,
+        publicPath: "/",
+      },
+      watchFiles: [join(__dirname, "src"), join(__dirname, "dist")],
+    },
     module: {
       rules: [
         {
@@ -42,7 +63,10 @@ const config = (): Configuration => {
                   "@babel/preset-typescript",
                   ["@babel/preset-react", { runtime: "automatic" }],
                 ],
-                plugins: ["@emotion/babel-plugin"],
+                plugins: [
+                  "@emotion/babel-plugin",
+                  require.resolve("react-refresh/babel"),
+                ],
               },
             },
           ],
