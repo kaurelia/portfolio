@@ -1,16 +1,18 @@
-import { Theme, ThemeProvider } from "@emotion/react";
-import { PropsWithChildren } from "react";
+import { ThemeProvider } from "@emotion/react";
+import { PropsWithChildren, useMemo } from "react";
 import { BrowserRouter } from "react-router-dom";
+import themes from "../../constants/themes/themes";
+import useSystemTheme from "react-use-system-theme";
 
-type AppProviderProps = PropsWithChildren;
+const AppProvider = ({ children }: PropsWithChildren) => {
+  const systemTheme = useSystemTheme("dark");
 
-const themes: { [key: string]: Theme } = {
-  light: { colors: { primary: "#1b00ff" } },
-};
+  const selectedTheme = useMemo(() => {
+    return themes[systemTheme];
+  }, [systemTheme]);
 
-const AppProvider = ({ children }: AppProviderProps) => {
   return (
-    <ThemeProvider theme={themes.light}>
+    <ThemeProvider theme={selectedTheme}>
       <BrowserRouter>{children}</BrowserRouter>
     </ThemeProvider>
   );
