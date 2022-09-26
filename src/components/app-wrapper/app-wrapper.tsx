@@ -2,13 +2,14 @@ import { Global } from "@emotion/react";
 import { FC, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import routes, { Route as RouteType } from "../../constants/routes/routes";
-import { globalStyles } from "../global-styles/global-styles";
+import GlobalStyles from "../global-styles/global-styles";
+import Loader from "../loader/loader";
 
 const AppWrapper: FC = (): JSX.Element => {
   return (
     <>
-      <Global styles={globalStyles} />
-      <Suspense fallback={<>Aurelia Korbela...</>}>
+      <GlobalStyles />
+      <Suspense fallback={<Loader />}>
         <Routes>
           {routes.map(
             (
