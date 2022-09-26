@@ -3,13 +3,21 @@ import { FC, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import routes, { Route as RouteType } from "../../constants/routes/routes";
 import GlobalStyles from "../global-styles/global-styles";
+import LoaderGlobalStyles from "../loader-global-styles/loader-global-styles";
 import Loader from "../loader/loader";
 
 const AppWrapper: FC = (): JSX.Element => {
   return (
     <>
       <GlobalStyles />
-      <Suspense fallback={<Loader />}>
+      <Suspense
+        fallback={
+          <>
+            <LoaderGlobalStyles />
+            <Loader />
+          </>
+        }
+      >
         <Routes>
           {routes.map(
             (

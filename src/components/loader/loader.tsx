@@ -15,17 +15,29 @@ const Loader = () => {
       </LoaderText>
     );
   });
+
+  const moveLoader = (event: keyof DocumentEventMap) => {
+    return fromEvent(document, event).subscribe((event: Event) => {
+      if (event instanceof MouseEvent || event instanceof TouchEvent) {
+        const { pageX, pageY } =
+          event instanceof MouseEvent ? event : event.touches[0];
+        setPageCords({ top: pageY, left: pageX });
+      }
+    });
+  };
   useEffect(() => {
-    const mouseEventListener = fromEvent(document, "mousemove").subscribe(
+    const mouseEventListener = moveLoader("mousemove");
+    const touchEventListener = moveLoader("touchmove");
+    const gestureEventListener = fromEvent(document, "gesturestart").subscribe(
       (event: Event) => {
-        if (event instanceof MouseEvent) {
-          const { pageX, pageY } = event;
-          setPageCords({ top: pageY, left: pageX });
-        }
+        event.preventDefault();
       }
     );
+
     return () => {
       mouseEventListener.unsubscribe();
+      touchEventListener.unsubscribe();
+      gestureEventListener.unsubscribe();
     };
   }, []);
   return (
