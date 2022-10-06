@@ -1,4 +1,6 @@
+import Page from "../../components/page/page";
+
 const Home = () => {
-  return <>HOME</>;
+  return <Page name="home">HOME</Page>;
 };
 export default Home;

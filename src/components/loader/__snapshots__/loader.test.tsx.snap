@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test app component Check if loader component renders properly 1`] = `
+exports[`Test loader component Check if loader renders properly 1`] = `
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -425,16 +425,6 @@ exports[`Test app component Check if loader component renders properly 1`] = `
         ✨
       </span>
     </div>
-  </div>
-</div>
-`;
-
-exports[`Test app component Check if page component renders properly 1`] = `
-<div>
-  <div
-    data-testid="page-home"
-  >
-    HOME
   </div>
 </div>
 `;
