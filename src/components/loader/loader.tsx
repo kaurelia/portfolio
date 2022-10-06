@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { fromEvent } from "rxjs";
-import { LoaderWrapper, LoaderTextWrapper, LoaderText } from "./loader.styles";
+import {
+  LoaderText,
+  LoaderWrapper,
+  LoaderTextWrapper,
+} from "~frontend/src/components/loader/loader.styles";
 
 const Loader = () => {
   const [pageCords, setPageCords] = useState<{

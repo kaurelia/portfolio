@@ -1,10 +1,12 @@
 import { Global } from "@emotion/react";
 import { FC, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import routes, { Route as RouteType } from "../../constants/routes/routes";
-import GlobalStyles from "../global-styles/global-styles";
-import LoaderGlobalStyles from "../loader-global-styles/loader-global-styles";
-import Loader from "../loader/loader";
+import routes, {
+  Route as RouteType,
+} from "~frontend/src/constants/routes/routes";
+import GlobalStyles from "~frontend/src/components/global-styles/global-styles";
+import LoaderGlobalStyles from "~frontend/src/components/loader-global-styles/loader-global-styles";
+import Loader from "~frontend/src/components/loader/loader";
 
 const AppWrapper: FC = (): JSX.Element => {
   return (

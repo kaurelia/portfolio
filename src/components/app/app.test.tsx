@@ -1,10 +1,11 @@
-import App from "./app";
+import App from "~frontend/src/components/app/app";
 import {
   findByTestId,
   getByTestId,
   render,
   waitFor,
   screen,
+  act,
 } from "@testing-library/react";
 
 describe("Test app component", () => {
@@ -14,9 +15,8 @@ describe("Test app component", () => {
   });
   it("Check if page component renders properly", async () => {
     const { container } = render(<App />);
-    await waitFor(async () => {
-      expect(await screen.findByTestId("page-home")).toBeInTheDocument();
+    await act(() => {
+      expect(container).toMatchSnapshot();
     });
-    expect(container).toMatchSnapshot();
   });
 });

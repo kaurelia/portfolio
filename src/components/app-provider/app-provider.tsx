@@ -1,8 +1,8 @@
 import { ThemeProvider } from "@emotion/react";
 import { PropsWithChildren, useMemo } from "react";
 import { BrowserRouter } from "react-router-dom";
-import themes from "../../constants/themes/themes";
 import useSystemTheme from "react-use-system-theme";
+import themes from "~frontend/src/constants/themes/themes";
 
 const AppProvider = ({ children }: PropsWithChildren) => {
   const systemTheme = useSystemTheme("dark");

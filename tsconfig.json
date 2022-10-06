@@ -5,6 +5,9 @@
     "target": "esnext",
     "lib": ["esnext", "dom", "dom.iterable"],
     "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": { "~frontend/*": ["*"] },
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "sourceMap": true,
@@ -12,6 +15,13 @@
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true
+  },
+  "ts-node": {
+    "transpileOnly": true,
+    "require": [
+      "typescript-transform-paths/register",
+      "tsconfig-paths/register"
+    ]
   },
   "include": ["."],
   "exclude": ["node_modules"]

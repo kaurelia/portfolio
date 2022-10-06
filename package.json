@@ -23,6 +23,8 @@
     "react-use-system-theme": "^1.1.1",
     "rxjs": "^7.5.6",
     "three": "^0.144.0",
+    "tsconfig-paths": "^4.1.0",
+    "typescript-transform-paths": "^3.3.1",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {

@@ -18,6 +18,9 @@ const config = (): Configuration => {
     },
     resolve: {
       extensions: [".js", ".tsx", ".jsx", ".ts", ".json", ".wasm", ".mjs"],
+      alias: {
+        "~frontend": process.cwd(),
+      },
     },
     plugins: [
       new CopyWebpackPlugin({
