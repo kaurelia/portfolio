@@ -7,8 +7,13 @@ import routes, {
 import GlobalStyles from "~frontend/src/components/global-styles/global-styles";
 import LoaderGlobalStyles from "~frontend/src/components/loader-global-styles/loader-global-styles";
 import Loader from "~frontend/src/components/loader/loader";
+import Hamburger from "../hamburger/hamburger";
+import useIsMobile from "~frontend/src/stores/is-mobile/is-mobile";
 
 const AppWrapper: FC = (): JSX.Element => {
+  const { isMobile } = useIsMobile(({ isMobile }) => {
+    return { isMobile };
+  });
   return (
     <>
       <GlobalStyles />
@@ -20,6 +25,7 @@ const AppWrapper: FC = (): JSX.Element => {
           </>
         }
       >
+        {isMobile && <Hamburger />}
         <Routes>
           {routes.map(
             (

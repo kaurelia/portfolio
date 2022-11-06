@@ -19,7 +19,6 @@ const Loader = () => {
       </LoaderText>
     );
   });
-
   const moveLoader = (event: keyof DocumentEventMap) => {
     return fromEvent(document, event).subscribe((event: Event) => {
       if (event instanceof MouseEvent || event instanceof TouchEvent) {
