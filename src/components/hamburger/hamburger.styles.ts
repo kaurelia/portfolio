@@ -1,5 +1,8 @@
-import styled from "@emotion/styled";
+import { Theme } from "@emotion/react";
+import styled, { StyledComponent } from "@emotion/styled";
 import Icon from "@mdi/react";
+import { IconProps } from "@mdi/react/dist/IconProps";
+import { motion } from "framer-motion";
 
 export const HamburgerMenu = styled(Icon)`
   cursor: pointer;
@@ -12,7 +15,7 @@ export const HamburgerMenu = styled(Icon)`
   }};
   padding: 5px;
 `;
-export const HamburgerCorner = styled.div`
+export const HamburgerCorner = styled(motion.div)`
   height: 60px;
   width: 60px;
   border-bottom-right-radius: 60px;
