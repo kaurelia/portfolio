@@ -26,4 +26,11 @@ export const HamburgerCorner = styled(motion.div)`
   }) => {
     return hamburgerCorner;
   }};
+  position: fixed;
+  top: 0;
+  z-index: 2;
+`;
+export const Spacer = styled.div`
+  width: 100vw;
+  height: 60px;
 `;
